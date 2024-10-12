@@ -1,4 +1,6 @@
 import React from 'react';
+import Section from '../components/Section';
+
 
 const Home = () => {
   const tokenFromLocalStorage = localStorage.getItem('token');
@@ -6,7 +8,9 @@ const Home = () => {
   console.log("User Token from LocalStorage:", tokenFromLocalStorage);
 
   return (
-    <div>Home Page</div>
+    <div className='p-10'>
+      <Section chartType={'line'}/>
+    </div>
   );
 };
 
