@@ -11,7 +11,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 // Wrapping in an async function
 async function tokenize(query) {
     const prompt = `
-        I want to parse this query: ${query}. Only return the json object in response, don't write anything other than the required response. I will use JSON.parse on your response. Limit 5 queries per section.
+        I want to parse this query: ${query}. Only return the json object in response, don't write anything other than the required response. I will use JSON.parse on your response. Limit 1 query per section.
         Please generate arrays of search queries in the following format:
         {
             "summary": [],

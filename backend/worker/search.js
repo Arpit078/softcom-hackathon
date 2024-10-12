@@ -44,10 +44,10 @@ async function performSearch(query) {
     }
 }
 
-// Call the async function to execute the search
-performSearch("future of ai").then((objOfUrls) => {
-    console.log(objOfUrls); // Output all collected URLs after the search completes
-});
+// // Call the async function to execute the search
+// performSearch("future of ai").then((objOfUrls) => {
+//     console.log(objOfUrls); // Output all collected URLs after the search completes
+// });
 
 // Export the performSearch function for use in other modules
 module.exports = performSearch; // Ensure this line is active if you need to import it elsewhere
