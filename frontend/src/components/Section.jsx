@@ -20,14 +20,9 @@ const Section = ({ chartType }) => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row items-center justify-around p-6 bg-gray-100 rounded-lg shadow-lg">
-            <div className="md:w-1/2 w-full p-4">
-                <h2 className="text-xl font-semibold mb-4">Editable Text</h2>
+        <div>
+            <div className='w-1/2'>
                 <EditableTextBox />
-            </div>
-            <div className="md:w-1/2 w-full p-4 border-l border-gray-300">
-                <h2 className="text-xl font-semibold mb-4">Chart</h2>
-                {renderChart()}
             </div>
         </div>
     );

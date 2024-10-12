@@ -21,7 +21,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const PieGraph = () => {
     return (
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="80%" height={200}>
             <PieChart>
                 <Tooltip />
                 <Legend />
