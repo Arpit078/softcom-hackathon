@@ -18,9 +18,10 @@ app.use('/api/user', userRoutes);
  1. handles user queries.
         - user query ko queue
         - db me status update report ki generating. unique id : status
+            rabbitmq.com/tutorials/tutorial-one-javascript
         - cron scrape karti hai 
         - update db to generated.
- 2. hanles data for generated page.
+ 2. handles data for generated page.
         - db se unique id ka data nikalke json me return.
 3.  handle post requests jo db me update karengi.
 */

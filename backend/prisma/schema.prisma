@@ -12,4 +12,11 @@ model User {
   username String @unique
   password String
   createdAt DateTime @default(now())
+  userDocuments Documents[]
+}
+
+model Documents{
+  id   Int @id @unique
+  status String
+  json Json 
 }
