@@ -8,15 +8,17 @@ generator client {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  username String @unique
-  password String
-  createdAt DateTime @default(now())
-  userDocuments Documents[]
+  id            Int         @id @default(autoincrement())
+  username      String      @unique
+  password      String
+  createdAt     DateTime    @default(now())
+  userDocuments Documents[]  @relation("UserDocuments") // Relation to Documents
 }
 
-model Documents{
-  id   Int @id @unique
-  status String
-  json Json 
+model Documents {
+  id       Int    @id @default(autoincrement()) // Changed to auto-increment
+  status   String @default("Generating")          // Default status
+  json     Json
+  userId   Int
+  user     User   @relation("UserDocuments", fields: [userId], references: [id]) // Foreign key relation
 }
