@@ -7,12 +7,12 @@ const Home = () => {
 
   // New structure of sectionsData as an object
   const sectionsData = {
-    summary: [],
-    competitor_and_market_force_analysis: [],
-    industry_specific_and_geographical_insights: [],
-    trends_prediction: [],
-    SWOT: [],
-    PESTLE: [],
+    summary: "",
+    competitor_and_market_force_analysis: "",
+    industry_specific_and_geographical_insights: "",
+    trends_prediction: "",
+    SWOT: "",
+    PESTLE: "",
   };
 
   const handleDownloadPDF = () => {
@@ -28,6 +28,8 @@ const Home = () => {
     // Generate PDF from the cloned element
     html2pdf().from(clonedElement).save('page-content.pdf');
   };
+
+  
 
   console.log('User Token from LocalStorage:', tokenFromLocalStorage);
 
