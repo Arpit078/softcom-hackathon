@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Define a route
 app.post('/generate_data', async (req, res) => { // handles user 
-  let query = req.query;
+  let query = req.body.query;
   let urls = await performSearch(query);
   let resultObj = await scrapeUrls(urls);
   let correct = await correctGrammar(resultObj);

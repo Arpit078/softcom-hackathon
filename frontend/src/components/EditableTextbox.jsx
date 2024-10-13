@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
-const EditableTextBox = () => {
+const EditableTextBox = ({data}) => {
     const [text, setText] = useState('This is the default text that can be edited. Click "Edit" to modify it.');
     const [isModalOpen, setModalOpen] = useState(false);
     const [tempText, setTempText] = useState(text); // For storing text during editing
@@ -28,7 +28,7 @@ const EditableTextBox = () => {
                     setTempText(text); // Set temp text for editing
                     setModalOpen(true);
                 }}
-                className="self-end px-3 py-1 text-normal rounded-lg bg-gray-500 text-white hover:bg-gray-600 transition-colors duration-300"
+                className="editbtn self-end px-3 py-1 text-normal rounded-lg bg-gray-500 text-white hover:bg-gray-600 transition-colors duration-300"
             >
                 Edit
             </button>

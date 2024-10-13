@@ -5,7 +5,7 @@ import LineGraph from './LineGraph';
 import BarGraph from './BarGraph';
 import PieGraph from './PieGraph';
 
-const Section = ({ chartType }) => {
+const Section = ({ data }) => {
     const renderChart = () => {
         switch (chartType) {
             case 'line':
@@ -21,8 +21,8 @@ const Section = ({ chartType }) => {
 
     return (
         <div>
-            <div className='w-1/2'>
-                <EditableTextBox />
+            <div className='w-full mx-4'>
+                <EditableTextBox  data={data}/>
             </div>
         </div>
     );

@@ -1,33 +1,56 @@
 import React from 'react';
 import Section from '../components/Section';
-
+import html2pdf from 'html2pdf.js';
 
 const Home = () => {
   const tokenFromLocalStorage = localStorage.getItem('token');
-  const sectionsData = [
-    { id: 1, title: 'Sales Data 2024', chartType: 'line' },
-    { id: 2, title: 'Product Performance', chartType: 'bar' },
-    { id: 3, title: 'Market Share', chartType: 'pie' },
-    { id: 4, title: 'Customer Growth', chartType: 'line' },
-    { id: 5, title: 'Revenue by Region', chartType: 'bar' },
-    { id: 6, title: 'New Customers', chartType: 'pie' },
-    { id: 7, title: 'Monthly Expenses', chartType: 'line' },
-    { id: 8, title: 'Inventory Levels', chartType: 'bar' },
-    { id: 9, title: 'Website Traffic', chartType: 'pie' },
-    { id: 10, title: 'Feedback Ratings', chartType: 'line' },
-];
 
-  console.log("User Token from LocalStorage:", tokenFromLocalStorage);
+  // New structure of sectionsData as an object
+  const sectionsData = {
+    summary: [],
+    competitor_and_market_force_analysis: [],
+    industry_specific_and_geographical_insights: [],
+    trends_prediction: [],
+    SWOT: [],
+    PESTLE: [],
+  };
+
+  const handleDownloadPDF = () => {
+    const element = document.querySelector('.sectionParent');
+
+    // Clone the element to avoid modifying the original DOM
+    const clonedElement = element.cloneNode(true);
+
+    // Remove buttons from the cloned element
+    clonedElement.querySelector('.downloadPdfBtn')?.remove();
+    clonedElement.querySelectorAll('.editbtn').forEach((btn) => btn.remove());
+
+    // Generate PDF from the cloned element
+    html2pdf().from(clonedElement).save('page-content.pdf');
+  };
+
+  console.log('User Token from LocalStorage:', tokenFromLocalStorage);
 
   return (
-    <div className="flex flex-col p-6">
-            {sectionsData.map((section) => (
-                <div key={section.id} className="w-full p-4">
-                    <h2 className="text-xl font-bold mb-2">{section.title}</h2>
-                    <Section chartType={section.chartType} />
-                </div>
-            ))}
+    <div className="sectionParent flex flex-col p-6">
+      {/* Button to trigger PDF download */}
+      <button
+        onClick={handleDownloadPDF}
+        className="downloadPdfBtn bg-blue-500 text-white rounded p-2 mb-4"
+      >
+        Download PDF
+      </button>
+
+      {/* Map over the keys and values of the sectionsData object */}
+      {Object.entries(sectionsData).map(([key, value]) => (
+        <div key={key} className="w-full p-4">
+          <h2 className="text-xl font-bold mb-2">
+            {key.replace(/_/g, ' ')} {/* Format the title */}
+          </h2>
+          <Section data={value} />
         </div>
+      ))}
+    </div>
   );
 };
 

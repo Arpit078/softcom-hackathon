@@ -3,7 +3,7 @@ const fs = require('fs');
 
 async function scrapePage(url) {
     try {
-        const browser = await puppeteer.launch({ headless: true });
+        const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: 'domcontentloaded' });
 
